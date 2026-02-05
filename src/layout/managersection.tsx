@@ -1,61 +1,97 @@
-
 import TopBar from "../components/topbar";
-
-
+import AssignTask from "../components/taskassign";
+import ProjectStatusTable from "../components/projectstatustable";
 const ManagerDashboard = () => {
-  return (
-    <div className="flex bg-gray-100">
-     
 
+  return (
+    <div className="flex min-h-screen bg-[#F2F0F7] font-sans">
       <div className="flex-1">
         <TopBar />
 
         <main className="p-6 space-y-6">
-          {/* Stats */}
-          
-
           {/* Project List */}
-          <div className="bg-white border rounded p-4">
-            <h3 className="font-semibold mb-3">Project Status</h3>
+          {/* Project Status + Assign Task */}
+          <div className="grid grid-cols-3 gap-6">
+            {/* Project Status (2 columns wide) */}
+            <div className="col-span-2">
+              <ProjectStatusTable />
+            </div>
+            {/* Assign Task (1 column wide) */}
+            <div className="col-span-1">
+              <AssignTask />
+            </div>
 
-            <table className="w-full text-sm">
-              <thead className="text-left text-gray-500">
-                <tr>
-                  <th>Project</th>
-                  <th>Progress</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t">
-                  <td>PMS Revamp</td>
-                  <td>70%</td>
-                  <td className="text-green-600">On Track</td>
-                </tr>
-                <tr className="border-t">
-                  <td>Mobile App</td>
-                  <td>40%</td>
-                  <td className="text-red-600">Delayed</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
+
           {/* Tasks + Team */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white border rounded p-4">
-              <h3 className="font-semibold mb-2">Tasks</h3>
-              <p>To Do: 12</p>
-              <p>In Progress: 8</p>
-              <p>Completed: 24</p>
+          <div className="grid grid-cols-2 gap-6">
+            {/* Tasks */}
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-[#B3AACF]">
+              <h3 className="font-bold text-center text-[#8879B8] mb-4">
+                Tasks
+              </h3>
+
+              <table className="w-full text-sm border-collapse">
+                <tbody>
+                  {[
+                    ["To Do", 24],
+                    ["In Progress", 8],
+                    ["Completed", 12],
+                  ].map(([label, value], index) => (
+                    <tr
+                      key={label}
+                      className={`
+            ${index % 2 === 0 ? "bg-[#F2F0F7]" : "bg-white"}
+            hover:bg-[#B3AACF]/20
+            transition-colors
+          `}
+                    >
+                      <td className="px-4 py-2 font-medium">{label}</td>
+                      <td className="px-4 py-2 text-right font-bold">
+                        {value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
-            <div className="bg-white border rounded p-4">
-              <h3 className="font-semibold mb-2">Team</h3>
-              <p>John – 5 tasks </p>
-              <p>Sara – 3 tasks </p>
-              <p>Arun – 7 tasks </p>
+
+            {/* Team */}
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-[#B3AACF]">
+              <h3 className="font-bold text-center text-[#8879B8] mb-4">
+                Team
+              </h3>
+
+              <table className="w-full text-sm border-collapse">
+                <tbody>
+                  {[
+                    ["Viraj", 5],
+                    ["Riishi", 3],
+                    ["Aniket", 7],
+                    ["Tanishka", 7],
+                    ["Magesh", 7],
+                    ["Ayush", 7],
+                  ].map(([name, tasks], index) => (
+                    <tr
+                      key={name}
+                      className={`
+            ${index % 2 === 0 ? "bg-[#F2F0F7]" : "bg-white"}
+            hover:bg-[#B3AACF]/20
+            transition-colors
+          `}
+                    >
+                      <td className="px-4 py-2 font-medium">{name}</td>
+                      <td className="px-4 py-2 text-right text-gray-600">
+                        {tasks} tasks
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
+
           </div>
         </main>
       </div>
