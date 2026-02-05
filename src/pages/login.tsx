@@ -1,7 +1,13 @@
 // import ManagerDashboard from "../layout/managersection";
+import { useNavigate } from "react-router-dom";
 
 //@ts-ignore
 const LoginPage = ({onNext}) => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/dashboards");
+  };
   return (
     <div className="flex min-h-screen w-full font-sans">
       {/* Left Section - Illustration */}
@@ -122,7 +128,7 @@ const LoginPage = ({onNext}) => {
         <div className="w-full max-w-md px-8">
           <button
             className="w-full rounded-md bg-white py-3 text-sm font-semibold tracking-wide text-[#8b7db5] shadow-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            onClick={onNext}
+            onClick={handleLogin}
           >
             LOGIN
           </button>
