@@ -1,10 +1,15 @@
-import ManagerDashboard from "./layout/managersection";
+import { useState } from "react";
+import LoginPage from "./pages/login";
+import SimpleDashboardPage from "./pages/dashboards";
 
 
 export default function App() {
+
+  const [showDashbords, setShowDashboards] = useState(false);
   return (
     <>
-    <ManagerDashboard />
+    {/*@ts-ignore*/}
+      {showDashbords? <SimpleDashboardPage /> : <LoginPage onNext={() => setShowDashboards(true)} />}
     </>
   );
 }
