@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // --- Custom SVG Icons (Replacing Lucide) ---
 
@@ -73,12 +74,13 @@ const ROLES: RoleOption[] = [
 
 export default function SimpleDashboardPage() {
   const [activeRole, setActiveRole] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleClick = (id: string, href: string) => {
     setActiveRole(id);
     // Simulate a slight delay for UX before redirecting
     setTimeout(() => {
-      window.location.href = href;
+      navigate(href);
     }, 600);
   };
 
