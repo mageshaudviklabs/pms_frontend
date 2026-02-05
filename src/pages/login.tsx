@@ -15,9 +15,9 @@ const LoginPage = ({onNext}) => {
         {/* Logo */}
         <div className="absolute left-8 top-8 flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded bg-blue-600 text-white font-bold">
-            A
+            P
           </div>
-          <span className="text-xl font-bold text-gray-800">AudvikLabs Test</span>
+          <span className="text-xl font-bold text-gray-800">PMS Test</span>
         </div>
 
         {/* Illustration Content */}
