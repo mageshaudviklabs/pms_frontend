@@ -52,9 +52,9 @@ const ManagerDashboard = () => {
 
             <div className="bg-white border rounded p-4">
               <h3 className="font-semibold mb-2">Team</h3>
-              <p>John – 5 tasks 🟢</p>
-              <p>Sara – 3 tasks 🟡</p>
-              <p>Arun – 7 tasks 🔴</p>
+              <p>John – 5 tasks </p>
+              <p>Sara – 3 tasks </p>
+              <p>Arun – 7 tasks </p>
             </div>
           </div>
         </main>
